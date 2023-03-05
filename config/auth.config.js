@@ -1,2 +1,3 @@
-
-export const SECRET_KEY = 'secert1';
+module.exports = {
+    secret: "bezkoder-secret-key"
+};
