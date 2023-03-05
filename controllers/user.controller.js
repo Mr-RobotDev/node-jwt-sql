@@ -3,13 +3,19 @@ exports.allAccess = (req, res) => {
 };
 
 exports.userBoard = (req, res) => {
-    res.status(200).send("User Content.");
+    res.status(200).send({
+        message: "User Content",
+    });
 };
 
 exports.adminBoard = (req, res) => {
-    res.status(200).send("Admin Content.");
+    res.status(200).send({
+        message: "Admin Content"
+    });
 };
 
 exports.moderatorBoard = (req, res) => {
-    res.status(200).send("Moderator Content.");
+    res.status(200).send({
+        message: "Moderator Content"
+    });
 };

@@ -11,12 +11,6 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-const Role = db.role;
-
-db.sequelize.sync({ force: true }).then(() => {
-    console.log('Drop and Resync Db');
-    initial();
-});
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -26,25 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Server Running" });
 });
-
-function initial() {
-    Role.create({
-        id: 1,
-        name: "user"
-    });
-
-    Role.create({
-        id: 2,
-        name: "moderator"
-    });
-
-    Role.create({
-        id: 3,
-        name: "admin"
-    });
-}
 
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
